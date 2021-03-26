@@ -194,7 +194,7 @@ BEGIN
 END
 GO
 --Create a function to return age for given date of birth
-CREATE FUNCTION fn_	CalculateAge( @DOB DATE)
+CREATE FUNCTION fn_CalculateAge( @DOB DATE)
 RETURNS INT
 AS
 BEGIN
