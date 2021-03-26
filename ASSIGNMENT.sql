@@ -183,7 +183,7 @@ INNER JOIN  Actors A2 ON R.Actorid2 = A2.Id
 CREATE NONCLUSTERED INDEX movies_profit ON Movies(Profit)
 GO
 --Create stored procedure to return list of actors for given movie id
-CREATE PROCEDURE SelectAllActors @MovieID INT  
+CREATE PROCEDURE usp_GetAllActors @MovieID INT  
 AS  
 BEGIN
 	SELECT A.Name   
@@ -202,7 +202,7 @@ RETURN ( SELECT DATEDIFF(YEAR, @DOB, CURRENT_TIMESTAMP) )
 END
 GO
 --Create a stored procedure to increase the profit (+100) of movies with given Ids (comma separated) 
-CREATE PROCEDURE IncrementProfit @MovieIds varchar(20)  
+CREATE PROCEDURE usp_IncrementProfit @MovieIds varchar(20)  
 AS  
 UPDATE Movies 
 SET Profit = Profit + 100 
