@@ -48,7 +48,7 @@ UpdatedAt  DATETIME DEFAULT CURRENT_TIMESTAMP)
 GO
 
 -- Triggers for update
-CREATE TRIGGER Actor_update on Actors FOR UPDATE AS
+CREATE TRIGGER trgr_Actor_update on Actors FOR UPDATE AS
 BEGIN
   UPDATE Actors
 	SET UpdatedAt = GETDATE()
@@ -57,7 +57,7 @@ BEGIN
 END
 GO
 
-CREATE TRIGGER Producer_update on Producers FOR UPDATE AS
+CREATE TRIGGER trgr_Producer_update on Producers FOR UPDATE AS
 BEGIN
   UPDATE Producers
 	SET UpdatedAt = GETDATE()
@@ -66,7 +66,7 @@ BEGIN
 END
 GO
 
-CREATE TRIGGER Movie_update on Movies FOR UPDATE AS
+CREATE TRIGGER trgr_Movie_update on Movies FOR UPDATE AS
 BEGIN
   UPDATE Movies
 	SET UpdatedAt = GETDATE()
@@ -75,7 +75,7 @@ BEGIN
 END
 GO 
 
-CREATE TRIGGER Genre_update on Genres FOR UPDATE AS
+CREATE TRIGGER trgr_Genre_update on Genres FOR UPDATE AS
 BEGIN
   UPDATE Genres
 	SET UpdatedAt = GETDATE()
@@ -84,7 +84,7 @@ BEGIN
 END
 GO
 
-CREATE TRIGGER ActorMovieMapping_update on ActorMovieMapping FOR UPDATE AS
+CREATE TRIGGER trgr_ActorMovieMapping_update on ActorMovieMapping FOR UPDATE AS
 BEGIN
   UPDATE ActorMovieMapping
 	SET UpdatedAt = GETDATE()
@@ -93,7 +93,7 @@ BEGIN
 END
 GO
 
-CREATE TRIGGER MovieGenreMapping_update on MovieGenreMapping FOR UPDATE AS
+CREATE TRIGGER trgr_MovieGenreMapping_update on MovieGenreMapping FOR UPDATE AS
 BEGIN
   UPDATE MovieGenreMapping
 	SET UpdatedAt = GETDATE()

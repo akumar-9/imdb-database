@@ -32,7 +32,7 @@ CreatedAt  DATETIME DEFAULT CURRENT_TIMESTAMP,
 UpdatedAt  DATETIME DEFAULT CURRENT_TIMESTAMP)
 GO
 
-CREATE TRIGGER Actor_update on Actors FOR UPDATE AS
+CREATE TRIGGER trgr_Actor_update on Actors FOR UPDATE AS
 BEGIN
   UPDATE Actors
 	SET UpdatedAt = GETDATE()
@@ -41,7 +41,7 @@ BEGIN
 END
 GO
 
-CREATE TRIGGER Producer_update on Producers FOR UPDATE AS
+CREATE TRIGGER trgr_Producer_update on Producers FOR UPDATE AS
 BEGIN
   UPDATE Producers
 	SET UpdatedAt = GETDATE()
@@ -50,7 +50,7 @@ BEGIN
 END
 GO
 
-CREATE TRIGGER Movie_update on Movies FOR UPDATE AS
+CREATE TRIGGER trgr_Movie_update on Movies FOR UPDATE AS
 BEGIN
   UPDATE Movies
 	SET UpdatedAt = GETDATE()
@@ -59,7 +59,7 @@ BEGIN
 END
 GO 
 
-CREATE TRIGGER ActorMovieMapping_update on ActorMovieMapping FOR UPDATE AS
+CREATE TRIGGER trgr_ActorMovieMapping_update on ActorMovieMapping FOR UPDATE AS
 BEGIN
   UPDATE ActorMovieMapping
 	SET UpdatedAt = GETDATE()
@@ -180,7 +180,7 @@ ON A1.Id = R.ActorId
 INNER JOIN  Actors A2 ON R.Actorid2 = A2.Id
 
 --Add non-clustered index on profit column of movies table
-CREATE NONCLUSTERED INDEX movies_profit ON Movies(Profit)
+CREATE NONCLUSTERED INDEX IX_movies_profit ON Movies(Profit)
 GO
 --Create stored procedure to return list of actors for given movie id
 CREATE PROCEDURE usp_GetAllActors @MovieID INT  
@@ -194,7 +194,7 @@ BEGIN
 END
 GO
 --Create a function to return age for given date of birth
-CREATE FUNCTION CalculateAge( @DOB DATE)
+CREATE FUNCTION fn_	CalculateAge( @DOB DATE)
 RETURNS INT
 AS
 BEGIN
